@@ -13,6 +13,9 @@ public abstract class BaseEmployee implements IWork{
     private String empType;
     private double basicSalary;
 
+    public BaseEmployee(){
+
+    }
     public BaseEmployee(String firstName, String lastName, String empType, double basicSalary){
         this.firstName = firstName;
         this.lastName = lastName;
