@@ -3,16 +3,21 @@ package Day4.Assignment1;
 public class ProjectLeader extends Employee {
     private String mobileNumber;
 
-    public ProjectLeader(String firstName,String lastName,String mobileNumber) throws IllegalAccessException {
-        super(firstName, lastName,"PL");
-        this.mobileNumber = validatemobileNumber(mobileNumber);
+    public String getMobileNumber() {
+        return mobileNumber;
     }
-    private String validatemobileNumber(String mobileNumber) throws IllegalAccessException {
-        if (mobileNumber.matches("[0-9]{10}")){
-            return mobileNumber;
-        }else {
-            throw new IllegalAccessException("Invalid Mobile Number");
-        }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public ProjectLeader() {
+
+    }
+
+    public ProjectLeader(String firstName, String lastName, String mobileNumber) {
+        super(firstName, lastName, "PL");
+        this.mobileNumber = mobileNumber;
     }
 
     public void printDetails(){
@@ -20,6 +25,6 @@ public class ProjectLeader extends Employee {
         System.out.println("First Name: " + getFirstName());
         System.out.println("Last Name: " + getLastName());
         System.out.println("Employee Type: " + getEmpType());
-        System.out.println("Mobile Number: " + mobileNumber);
+        System.out.println("Mobile Number: " + getMobileNumber());
     }
 }

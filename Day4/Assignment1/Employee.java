@@ -5,13 +5,17 @@ public class Employee {
     private String lastName;
     protected String empType;
 
-    public Employee(String firstName,String lastName,String empType){
+    public Employee() {
+
+    }
+
+    public Employee(String firstName, String lastName, String empType) {
         this.empType = empType;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
@@ -19,7 +23,7 @@ public class Employee {
         return empType;
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return lastName;
     }
 }
