@@ -1,0 +1,16 @@
+
+c
+java:S2259"FA "NullPointerException" could be thrown; "password" is nullable here.(ğïÂ±8²èÛñ×1
+c
+java:S2259"FA "NullPointerException" could be thrown; "userCode" is nullable here.(ğïÂ±8³èÛñ×1
+M
+java:S2589"7Remove this expression which always evaluates to "true"(ğïÂ±
+Z	java:S106	"9Replace this use of System.out or System.err by a logger.(…ş±áùÿÿÿÿ8¶èÛñ×1
+[
+java:S1764"ECorrect one of the identical sub-expressions on both sides of equals.(ğïÂ±
+[
+java:S1764"ECorrect one of the identical sub-expressions on both sides of equals.(ğïÂ±
+B
+java:S1068",Remove this unused "userCode" private field.(ôß†Ö
+G
+java:S1068",Remove this unused "password" private field.(¶üìÈıÿÿÿÿ

@@ -1,0 +1,8 @@
+
+l
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(ãø©Æþÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¸›àÛþÿÿÿÿ
+S	java:S106	"9Replace this use of System.out or System.err by a logger.(Õ®Ú†ýÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(û™Ê¡ÿÿÿÿÿ
+N
+java:S1128"1Remove this unused import 'java.util.Properties'.(¬µŽ²8ˆä¢Æ×1
