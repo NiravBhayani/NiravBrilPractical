@@ -30,6 +30,7 @@ public class EmployeeShorted {
     }
     private void bubbleSort(List<BaseEmployee> employees,Comparator<BaseEmployee> comparator){
         int n = employees.size();
+
         for(int i=0; i<n-1;i++){
             for(int j=0; j<n-i-1;j++){
                 if(comparator.compare(employees.get(j),employees.get(j+1))>0){
