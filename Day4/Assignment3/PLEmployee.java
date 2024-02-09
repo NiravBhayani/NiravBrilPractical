@@ -2,6 +2,9 @@ package Day4.Assignment3;
 
 public class PLEmployee extends BaseEmployee {
     private String mobileNumber;
+    public PLEmployee(){
+
+    }
 
     public PLEmployee(String firstName, String lastName, String mobileNumber,double basicSalary){
         super(firstName,lastName,"PL",basicSalary);
