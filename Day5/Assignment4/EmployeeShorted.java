@@ -6,20 +6,20 @@ import java.util.List;
 public class EmployeeShorted {
     public void sortByColumn(List<BaseEmployee> employees, String columnName){
         Comparator<BaseEmployee> comparator;
-        switch (columnName){
-            case "empCode":
+        switch (columnName.toLowerCase()){
+            case "empcode":
                 comparator = Comparator.comparing(BaseEmployee::getEmpCode);
                 break;
-            case "firstName":
+            case "firstname":
                 comparator = Comparator.comparing(BaseEmployee::getFirstName);
                 break;
-            case "lastName":
+            case "lastname":
                 comparator = Comparator.comparing(BaseEmployee::getLastName);
                 break;
-            case "empType":
+            case "emptype":
                 comparator = Comparator.comparing(BaseEmployee::getEmpType);
                 break;
-            case "Salary":
+            case "salary":
                 comparator = Comparator.comparing(BaseEmployee::getBasicSalary);
                 break;
             default:

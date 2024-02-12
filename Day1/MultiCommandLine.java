@@ -3,7 +3,7 @@ package Day1;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class MultiCommandLine {
+public class MultiCommandLine {
     public void doOperation(String[] args) { // 1 2 3 4 5 6 7
         if (args.length < 2) {
             // coma , cpase, -,
@@ -76,4 +76,5 @@ class MultiCommandLine {
         }
         System.out.println();
     }
+
 }

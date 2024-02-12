@@ -26,7 +26,7 @@ public class FrequencyChecker {
 
         public static void main(String[] args){
         if(args.length == 0){
-            System.out.println("please provide input in Words from Argument");
+            System.out.println("Please provide input in Words from Argument");
             return;
         }
         String[] words = Arrays.copyOfRange(args,0,args.length-1);

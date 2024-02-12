@@ -20,7 +20,7 @@ public class Main {
         EmployeeSearch employeeSearch = new EmployeeSearch();
         employeeSearch.searchAndPrintEmployeeDetails(lastNameToSearch);
 
-        String sortColumn = "empCode";
+        String sortColumn = args[0];
         EmployeeShorted employeeShorted = new EmployeeShorted();
         employeeShorted.sortByColumn(employees,sortColumn);
         rowPrinter.printAsTable(employees);

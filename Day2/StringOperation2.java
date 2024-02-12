@@ -1,6 +1,6 @@
 package Day2;
 
-class StringOperation2{
+public class StringOperation2{
     public void doOperation(String[] args){
         if (args.length < 2){
             System.out.println("Invalid command. Give 1 0r 2 argument ");

@@ -4,4 +4,5 @@ public class TestCommandLine2 {
         MultiCommandLine m1 = new MultiCommandLine();
         m1.doOperation(args);
     }
+
 }
