@@ -40,13 +40,8 @@ public class FileInfo {
     }
 
     public static void main(String[] args) {
-        if(args.length == 0){
-            System.out.println("Please provide a path");
-            return;
-        }
 
-        String filePath = args[0];
         FileInfo fileInfo = new FileInfo();
-        fileInfo.displayFileInfo(filePath);
+        fileInfo.displayFileInfo("/home/brilworks-26/Desktop/BrilAssignment/Day8");
     }
 }

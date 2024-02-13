@@ -33,4 +33,11 @@ public class PLEmployee extends BaseEmployee {
     public String getMobileNumber(){
         return mobileNumber;
     }
+
+    @Override
+    public String toString() {
+        return "PLEmployee{" +
+                "mobileNumber='" + mobileNumber + '\'' +
+                '}';
+    }
 }

@@ -8,6 +8,7 @@ public class TestPLEmployee {
         System.out.println("Employee Type: "+ alexRichard.getEmpType());
         System.out.println("Mobile Number: "+ alexRichard.getMobileNumber());
         System.out.println("Basic salary: "+ alexRichard.getBasicSalary());
-        alexRichard.doWork();
+        System.out.println(alexRichard.toString());
+//        alexRichard.doWork();
     }
 }
