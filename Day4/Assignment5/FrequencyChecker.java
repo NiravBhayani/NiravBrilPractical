@@ -17,7 +17,7 @@ public class FrequencyChecker {
 
         TreeMap<String, Integer> sortedMap = new TreeMap<>(frequencyMap);
 
-        // check hoe to print whole tree and map
+        // check how to print whole tree and map
         System.out.print("{");
         for (Map.Entry<String, Integer> entry : sortedMap.entrySet()) {
             System.out.print(entry.getKey() + "=" + entry.getValue() + ",");
@@ -27,11 +27,7 @@ public class FrequencyChecker {
 
         public static void main(String[] args){
         //use list or array
-        if(args.length == 0){
-            System.out.println("Please provide input in Words from Argument");
-            return;
-        }
-        String[] words = Arrays.copyOfRange(args,0,args.length-1);
+        String[] words = {"one","one","two","three","four","three"};
 
         System.out.println("Using HashMap:");
 
