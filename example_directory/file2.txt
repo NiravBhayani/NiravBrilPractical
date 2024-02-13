@@ -1,0 +1,3 @@
+Another text file here.
+This file doesn't contain the word "example".
+But it has some other words.
