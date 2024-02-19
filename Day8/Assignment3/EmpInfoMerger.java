@@ -1,7 +1,5 @@
 package Day8.Assignment3;
 
-import Day7.Assignment4.EmployeeDetail;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +47,7 @@ public class EmpInfoMerger extends Thread{
                 bufferedWriter.newLine();
             }
             System.out.println("Shared resource is written to the file: "+filePath);
-            sharedResource.clear();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
