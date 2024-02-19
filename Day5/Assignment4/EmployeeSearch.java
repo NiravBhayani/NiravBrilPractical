@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EmployeeSearch {
-    private String EmployeePath = "/home/brilworks-26/Desktop/Assignment/Day5/Assignment3/EmployeeDetails";
+    private String EmployeePath = "/home/brilworks-26/Desktop/BrilAssignment/Day5/Assignment3/EmployeeDetails";
 
     public void searchAndPrintEmployeeDetails(String lastName){
         RowReader rowReader = new RowReader();

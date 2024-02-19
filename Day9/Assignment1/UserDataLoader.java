@@ -1,12 +1,17 @@
 package Day9.Assignment1;
 
+import javax.management.MBeanTrustPermission;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserDataLoader extends Thread {
     private String filePath;
     private List<UserInfo> userInfoList;
+    private static final List<UserInfo> userinfoList = Collections.synchronizedList(new ArrayList<>());
+
 
     public UserDataLoader(String filePath, List<UserInfo> userInfoList) {
         this.filePath = filePath;
@@ -30,48 +35,13 @@ public class UserDataLoader extends Thread {
 
                 switch (userRole){
                     case "Admin":
-                        System.out.println("For displaying a list press : 'L'");
-                        System.out.println("For Search for Employee : 'S'");
-                        System.out.println("For Log Off : 'O'");
-                        System.out.println("For Exit : 'X'");
-                        String command = scanner.nextLine();
-                        switch (command.toLowerCase()){
-                            case"l":
-                                System.out.println(" 1. Back to Main Menu 'B', \n" +
-                                        "2. Press 'E' for Employees, \n" +
-                                        "3. 'M' for Manager, 'A' for Admin and \n" +
-                                        "4. 'All' for all");
-                                String command2 = scanner.nextLine();
-                                switch (command2.toLowerCase()){
-                                    case "b":
-                                        break;
-                                    case "e":
-                                        break;
-                                    case "m":
-                                        break;
-                                    case "a":
-                                        break;
-                                    case "all":
-                                        break;
-                                    default:
-                                        System.out.println("Command not valid!!");
-                                }break;
-
-                            case"s":
-                                System.out.println("1. Back to Main Menu (B), \n" +
-                                        "2. Press 'E' for Employees, \n" +
-                                        "3. 'M' for Manager, \n" +
-                                        "4. 'A' for Admin and \n" +
-                                        "5. 'All' for all");
-                                break;
-
-                        }
                         break;
-                    case "Admin":
-                        displayAllUsers();
+
+                    case "Manager":
+
                         break;
                     case "Employee":
-                        displayUserInfo(username);
+                        displayUserInfo("userName");
                         break;
                     default:
                         System.out.println("Invalid role!");
@@ -86,4 +56,30 @@ public class UserDataLoader extends Thread {
             e.printStackTrace();
         }
     }
+    private static void displayAllEmployees() {
+        System.out.println("List of all employees:");
+        for (UserInfo userInfo : userinfoList) {
+            if (userInfo.getUserRole().equals("Employee")) {
+                System.out.println(userInfo);
+            }
+        }
+    }
+
+    private static void displayAllUsers() {
+        System.out.println("List of all users:");
+        for (UserInfo userInfo : userinfoList) {
+            System.out.println(userInfo);
+        }
+    }
+    private static void displayUserInfo(String username) {
+        for (UserInfo userInfo : userinfoList) {
+            if (username.equals(userInfo.getName())) {
+                System.out.println("User Information:");
+                System.out.println(userInfo);
+                break;
+            }
+        }
+    }
+
 }
+

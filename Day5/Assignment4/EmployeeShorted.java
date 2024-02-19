@@ -29,10 +29,9 @@ public class EmployeeShorted {
         bubbleSort(employees,comparator);
     }
     private void bubbleSort(List<BaseEmployee> employees,Comparator<BaseEmployee> comparator){
-        int n = employees.size();
 
-        for(int i=0; i<n-1;i++){
-            for(int j=0; j<n-i-1;j++){
+        for(int i=0; i<employees.size()-1;i++){
+            for(int j=0; j<employees.size()-i-1;j++){
                 if(comparator.compare(employees.get(j),employees.get(j+1))>0){
                     BaseEmployee temp = employees.get(j);
                     employees.set(j,employees.get(j+1));

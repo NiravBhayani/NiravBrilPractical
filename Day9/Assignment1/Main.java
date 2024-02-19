@@ -79,6 +79,71 @@ class Main {
         for (UserInfo userInfo : userInfoList) {
             System.out.println(userInfo);
         }
+        System.out.println("For displaying a list press : 'L'");
+        System.out.println("For Search for Employee : 'S'");
+        System.out.println("For Log Off : 'O'");
+        System.out.println("For Exit : 'X'");
+        Scanner scanner=new Scanner(System.in);
+        String command = scanner.nextLine();
+        switch (command.toLowerCase()){
+            case"l":
+                System.out.println(" 1. Back to Main Menu 'B', \n" +
+                        "2. Press 'E' for Employees, \n" +
+                        "3. 'M' for Manager, 'A' for Admin and \n" +
+                        "4. 'All' for all");
+                String command2 = scanner.nextLine();
+                switch (command2.toLowerCase()){
+                    case "b":
+                        System.out.println("Back to main menu");
+                        System.exit(0);
+                        break;
+                    case "e":
+                        displayAllEmployees();
+                        break;
+                    case "m":
+                        break;
+                    case "a":
+                        displayAllUsers();
+                        break;
+                    case "all":
+                        break;
+                    default:
+                        System.out.println("Command not valid!!");
+                }break;
+
+            case"s":
+                System.out.println("1. Back to Main Menu (B), \n" +
+                        "2. Press 'E' for Employees, \n" +
+                        "3. 'M' for Manager, \n" +
+                        "4. 'A' for Admin and \n" +
+                        "5. 'All' for all");
+
+                String command3 = scanner.nextLine();
+                switch (command3.toLowerCase()) {
+                    case "b":
+                        break;
+                    case "e":
+                        break;
+                    case "m":
+                        break;
+                    case "a":
+                        break;
+                    case "all":
+                        break;
+                    default:
+                        System.out.println("Command not valid!!");
+                }break;
+
+            case"o":
+                System.out.println("You are Log Out");
+                System.exit(0);
+                break;
+
+            case"x":
+                System.out.println("System is Exiting");
+                System.exit(0);
+                break;
+        }
     }
 
     private static boolean authenticateUser(String username, String password) {

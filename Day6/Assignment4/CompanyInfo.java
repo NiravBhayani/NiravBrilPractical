@@ -20,7 +20,7 @@ public class CompanyInfo {
             locale = new Locale("en", "US");
         }
 
-        ResourceBundle messages = ResourceBundle.getBundle("message", locale);
+        ResourceBundle messages = ResourceBundle.getBundle("message_en", locale);
 
         System.out.println(messages.getString("company.name") + ": " + messages.getString("company.name.value"));
         System.out.println(messages.getString("company.headoffice.address") + ": " + messages.getString("company.headoffice.address.value"));

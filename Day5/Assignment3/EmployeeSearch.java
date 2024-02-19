@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 public class EmployeeSearch {
-    private String EmployeePath = "/home/brilworks-26/Desktop/Assignment/Day5/Assignment3/EmployeeDetails";
+    private String employeePath = "/home/brilworks-26/Desktop/BrilAssignment/Day5/Assignment3/EmployeeDetails";
 
     public void searchAndPrintEmployeeDetails(String lastName){
         RowReader rowReader = new RowReader();
-        Map<String,BaseEmployee> employeeMap = rowReader.readEmployeeMap(EmployeePath);
+        Map<String,BaseEmployee> employeeMap = rowReader.readEmployeeMap(employeePath);
 
         List<BaseEmployee> matchingEmployees = searchByLastName(employeeMap, lastName);
 
@@ -36,6 +36,7 @@ public class EmployeeSearch {
             System.out.println("Employee Code: "+employee.getEmpCode());
             System.out.println("Name : "+employee.getFirstName()+" "+employee.getLastName());
             System.out.println("Employee Type: "+employee.getEmpType());
+            // calculate salary instead of display
             System.out.println("Salary: "+employee.getBasicSalary()+"(+12.5%)");
             System.out.println();
 
