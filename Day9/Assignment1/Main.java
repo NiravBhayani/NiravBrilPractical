@@ -119,7 +119,7 @@ class Main {
         String command = scanner.nextLine();
         switch (command.toLowerCase()) {
             case "l":
-                System.out.println(" 1. Back to Main Menu 'B', \n" +
+                System.out.println("1. Back to Main Menu 'B', \n" +
                         "2. Press 'E' for Employees, \n" +
                         "3. 'M' for Manager, 'A' for Admin and \n" +
                         "4. 'All' for all");
@@ -163,21 +163,17 @@ class Main {
                         displayAllEmployees();
                         break;
                     case "m":
-                        for (MergedInfo mergedInfo : mergedInfoList) {
-                            if (mergedInfo.getUserRole().equals("Manager")) {
-                                System.out.println(mergedInfo);
-                            }
-                        }
+                        displayAllManager();
                         break;
                     case "a":
-                        for (MergedInfo mergedInfo : mergedInfoList) {
-                            if (mergedInfo.getUserRole().equals("Admin")) {
-                                System.out.println(mergedInfo);
-                            }
-                        }
+                        displayAllAdmin();
                         break;
                     case "all":
-                          break;
+                        displayAllAdmin();
+                        displayAllManager();
+                        displayAllEmployees();
+
+                        break;
                     default:
                         System.out.println("Command not valid!!");
                 }
@@ -204,7 +200,7 @@ class Main {
         String command = scanner.nextLine();
         switch (command.toLowerCase()) {
             case "l":
-                System.out.println(" 1. Back to Main Menu 'B', \n" +
+                System.out.println("1. Back to Main Menu 'B', \n" +
                         "2. Press 'E' for Employees, \n" +
                         "3. 'M' for Manager, \n" +
                         "4. 'All' for all");
@@ -223,7 +219,6 @@ class Main {
 
                     case "all":
                         displayAllAdmin();
-                        displayAllManager();
                         displayAllManager();
                         break;
                     default:
@@ -245,14 +240,12 @@ class Main {
                         displayAllEmployees();
                         break;
                     case "m":
-                        for (MergedInfo mergedInfo : mergedInfoList) {
-                            if (mergedInfo.getUserRole().equals("Manager")) {
-                                System.out.println(mergedInfo);
-                            }
-                        }
+                       displayAllManager();
                         break;
                     case "all":
-                        //   break;
+                        displayAllManager();
+                        displayAllEmployees();
+
                     default:
                         System.out.println("Command not valid!!");
                 }
