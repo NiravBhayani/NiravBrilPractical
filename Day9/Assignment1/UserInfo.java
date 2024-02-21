@@ -5,18 +5,19 @@ public class UserInfo {
     private String name;
     private String address;
     private String city;
-    private int basicSalary;
+    private double basicSalary;
     private long telNumber;
-    public String userRole;
 
-    public UserInfo(int userId,String userRole , String name, String address, String city, int basicSalary, long telNumber) {
+    public UserInfo(){
+
+    }
+    public UserInfo(int userId, String name, String address, String city, double basicSalary, long telNumber) {
         this.userId = userId;
         this.name = name;
         this.address = address;
         this.city = city;
         this.basicSalary = basicSalary;
         this.telNumber = telNumber;
-        this.userRole = userRole;
     }
 
     public int getUserId() {
@@ -35,7 +36,7 @@ public class UserInfo {
         return city;
     }
 
-    public int getBasicSalary() {
+    public double getBasicSalary() {
         return basicSalary;
     }
 
@@ -43,13 +44,8 @@ public class UserInfo {
         return telNumber;
     }
 
-    public String getUserRole() {
+    public String getUserRole(String userRole) {
         return userRole;
     }
 
-    @Override
-    public String toString() {
-        return "User ID: " + userId + "\nUser Role: " + userRole + "\nName: " + name + "\nAddress: " + address + "\nCity: " + city +
-                "\nBasic Salary: " + basicSalary + "\nTel Number: " + telNumber;
-    }
 }

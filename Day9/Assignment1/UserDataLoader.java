@@ -1,21 +1,26 @@
 package Day9.Assignment1;
 
-import javax.management.MBeanTrustPermission;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class UserDataLoader extends Thread {
     private String filePath;
-    private List<UserInfo> userInfoList;
-    private static final List<UserInfo> userinfoList = Collections.synchronizedList(new ArrayList<>());
+    private List<MergedInfo> mergedInfoList;
+    private static List<MergedInfo> mergedinfoList = Collections.synchronizedList(new ArrayList<>());
+    private static List<UserInfo> userInfoList = Collections.synchronizedList(new ArrayList<>());
+    private static List<UserLoginInfo> userLoginInfoList = Collections.synchronizedList(new ArrayList<>());
+    private static String LOGIN_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/login_info";
+    private static String USER_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/user_info";
 
+    public UserDataLoader() {
 
-    public UserDataLoader(String filePath, List<UserInfo> userInfoList) {
+    }
+
+    public UserDataLoader(String filePath, List<MergedInfo> mergedInfoList) {
         this.filePath = filePath;
-        this.userInfoList = userInfoList;
+        this.mergedInfoList = mergedInfoList;
     }
 
     @Override
@@ -31,53 +36,53 @@ public class UserDataLoader extends Thread {
                 String city = parts[4];
                 int basicSalary = Integer.parseInt(parts[5]);
                 long telNumber = Long.parseLong(parts[6]);
-                Scanner scanner = new Scanner(System.in);
 
-                switch (userRole){
-                    case "Admin":
-                        break;
-
-                    case "Manager":
-
-                        break;
-                    case "Employee":
-                        displayUserInfo("userName");
-                        break;
-                    default:
-                        System.out.println("Invalid role!");
+                MergedInfo mergedInfo = new MergedInfo(userId, userRole, name, address, city, basicSalary, telNumber);
+                synchronized (mergedInfoList) {
+                    mergedInfoList.add(mergedInfo);
                 }
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
-                UserInfo userInfo = new UserInfo(userId, userRole, name, address, city, basicSalary, telNumber);
-                synchronized (userInfoList) {
-                    userInfoList.add(userInfo);
+
+        private static void readUserLoginInfo() {
+            try (BufferedReader reader = new BufferedReader(new FileReader(LOGIN_INFO_FILE))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    if (parts.length == 4) {
+                        int userId = Integer.parseInt(parts[0]);
+                        String username = parts[1];
+                        String password = parts[2];
+                        String userRole = parts[3];
+                        userLoginInfoList.add(new UserLoginInfo(userId, username, password, userRole));
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    private static void readUserInfo() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(USER_INFO_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 6) {
+                    int userId = Integer.parseInt(parts[0]);
+                    String name = parts[1];
+                    String address = parts[2];
+                    String city = parts[3];
+                    int basicSalary = Integer.parseInt(parts[4]);
+                    long telNumber = Long.parseLong(parts[5]);
+                    userInfoList.add(new UserInfo(userId,name, address, city, basicSalary, telNumber));
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-    private static void displayAllEmployees() {
-        System.out.println("List of all employees:");
-        for (UserInfo userInfo : userinfoList) {
-            if (userInfo.getUserRole().equals("Employee")) {
-                System.out.println(userInfo);
-            }
-        }
-    }
-
-    private static void displayAllUsers() {
-        System.out.println("List of all users:");
-        for (UserInfo userInfo : userinfoList) {
-            System.out.println(userInfo);
-        }
-    }
-    private static void displayUserInfo(String username) {
-        for (UserInfo userInfo : userinfoList) {
-            if (username.equals(userInfo.getName())) {
-                System.out.println("User Information:");
-                System.out.println(userInfo);
-                break;
-            }
         }
     }
 
