@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 public class MergedInfo {
         private int userId;
+        private String password;
         private String name;
         private String userRole;
         private String address;
@@ -11,8 +12,9 @@ public class MergedInfo {
         private String salary;
         private long telNumber;
 
-        public MergedInfo(int userId, String userRole, String name, String address, String city, double basicSalary, long telNumber) {
+        public MergedInfo(int userId,String password, String userRole, String name, String address, String city, double basicSalary, long telNumber) {
             this.userId = userId;
+            this.password = password;
             this.name = name;
             this.userRole = userRole;
             this.address = address;
@@ -39,6 +41,10 @@ public class MergedInfo {
         return userRole;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -57,6 +63,8 @@ public class MergedInfo {
 
     @Override
     public String toString() {
-        return "User ID: " + userId + "\n" + "\nName: " + name + "\nAddress: " + address + "\nCity: " + city + "\nSalary: " + salary + "\nTel Number: " + telNumber;
+        return "User ID: " + userId + "\nUser Role: "+ userRole +
+                "\nName: " + name + "\nAddress: " + address + "\nCity: "
+                + city + "\nSalary: " + salary + "\nTel Number: " + telNumber +"\n";
     }
 }

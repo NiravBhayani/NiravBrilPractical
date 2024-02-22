@@ -8,7 +8,6 @@ import java.util.List;
 public class UserDataLoader extends Thread {
     private String filePath;
     private List<MergedInfo> mergedInfoList;
-    private static List<MergedInfo> mergedinfoList = Collections.synchronizedList(new ArrayList<>());
     private static List<UserInfo> userInfoList = Collections.synchronizedList(new ArrayList<>());
     private static List<UserLoginInfo> userLoginInfoList = Collections.synchronizedList(new ArrayList<>());
     private static String LOGIN_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/login_info";
@@ -25,19 +24,20 @@ public class UserDataLoader extends Thread {
 
     @Override
     public void run() {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/user_info"))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] parts = line.split(",");
                 int userId = Integer.parseInt(parts[0]);
-                String userRole = parts[1];
-                String name = parts[2];
-                String address = parts[3];
-                String city = parts[4];
-                int basicSalary = Integer.parseInt(parts[5]);
-                long telNumber = Long.parseLong(parts[6]);
+                String password = parts[1].substring(0, Math.min(parts[1].length(), 16));
+                String userRole = parts[2];
+                String name = parts[3].substring(0, Math.min(parts[3].length(), 16));
+                String address = parts[4].substring(0, Math.min(parts[4].length(), 40));
+                String city = parts[5].substring(0, Math.min(parts[5].length(), 16));
+                int basicSalary = Integer.parseInt(parts[6]);
+                long telNumber = Long.parseLong(parts[7]);
 
-                MergedInfo mergedInfo = new MergedInfo(userId, userRole, name, address, city, basicSalary, telNumber);
+                MergedInfo mergedInfo = new MergedInfo(userId,password, userRole, name, address, city, basicSalary, telNumber);
                 synchronized (mergedInfoList) {
                     mergedInfoList.add(mergedInfo);
                 }
@@ -46,45 +46,5 @@ public class UserDataLoader extends Thread {
             throw new RuntimeException(ex);
         }
     }
-
-
-        private static void readUserLoginInfo() {
-            try (BufferedReader reader = new BufferedReader(new FileReader(LOGIN_INFO_FILE))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    if (parts.length == 4) {
-                        int userId = Integer.parseInt(parts[0]);
-                        String username = parts[1];
-                        String password = parts[2];
-                        String userRole = parts[3];
-                        userLoginInfoList.add(new UserLoginInfo(userId, username, password, userRole));
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    private static void readUserInfo() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(USER_INFO_FILE))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 6) {
-                    int userId = Integer.parseInt(parts[0]);
-                    String name = parts[1];
-                    String address = parts[2];
-                    String city = parts[3];
-                    int basicSalary = Integer.parseInt(parts[4]);
-                    long telNumber = Long.parseLong(parts[5]);
-                    userInfoList.add(new UserInfo(userId,name, address, city, basicSalary, telNumber));
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
 

@@ -16,7 +16,7 @@ public class RowReader {
             while ((line = bufferedReader.readLine()) != null){
                 String[] fields = line.split(",");
                 if (fields.length == 5) {
-                    BaseEmployee employee = new GeneralEmployee(fields[0],fields[1],fields[2],fields[3],Double.parseDouble(fields[4]));
+                    BaseEmployee employee = new GeneralEmployee(fields[0],fields[1],fields[2],fields[3],Long.parseLong(fields[4]));
                     employees.add(employee);
                 }else {
                     System.out.println("Error!!! number of column is incorrect");
@@ -35,7 +35,7 @@ public class RowReader {
             while ((line = bufferedReader.readLine()) != null){
                 String[] fields = line.split(",");
                 if (fields.length == 5) {
-                    BaseEmployee employee = new GeneralEmployee(fields[0],fields[1],fields[2],fields[3],Double.parseDouble(fields[4]));
+                    BaseEmployee employee = new GeneralEmployee(fields[0],fields[1],fields[2],fields[3],Long.parseLong(fields[4]));
                     employeeMap.put(employee.getEmpCode(),employee);
                 }else {
                     System.out.println("Error!!! number of column is incorrect");

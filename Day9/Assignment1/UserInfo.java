@@ -2,6 +2,7 @@ package Day9.Assignment1;
 
 public class UserInfo {
     private int userId;
+    private String password;
     private String name;
     private String address;
     private String city;
@@ -11,8 +12,9 @@ public class UserInfo {
     public UserInfo(){
 
     }
-    public UserInfo(int userId, String name, String address, String city, double basicSalary, long telNumber) {
+    public UserInfo(int userId, String password,String name, String address, String city, double basicSalary, long telNumber) {
         this.userId = userId;
+        this.password=password;
         this.name = name;
         this.address = address;
         this.city = city;
@@ -34,6 +36,10 @@ public class UserInfo {
 
     public String getCity() {
         return city;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public double getBasicSalary() {

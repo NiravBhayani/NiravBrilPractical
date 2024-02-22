@@ -37,7 +37,7 @@ public class EmployeeSearch {
             System.out.println("Name : "+employee.getFirstName()+" "+employee.getLastName());
             System.out.println("Employee Type: "+employee.getEmpType());
             // calculate salary instead of display
-            System.out.println("Salary: "+employee.getBasicSalary()+"(+12.5%)");
+            System.out.println("Salary: "+(employee.getBasicSalary()+(employee.getBasicSalary()*0.125)));
             System.out.println();
 
         }

@@ -1,8 +1,5 @@
 package Day9.Assignment1;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,6 +49,7 @@ class Main {
                 } else if (userRole.equals("Employee")) {
                     displayUserInfo(username);
                 }
+                break;
 
             } else {
                 System.out.println("Either username or password or role is wrong. Please try again.");
@@ -75,13 +73,12 @@ class Main {
 
     private static boolean authenticateUser(String username, String password , String userRole) {
         for (MergedInfo mergedInfo : mergedInfoList) {
-            if (username.equals(mergedInfo.getName()) && password.equals("password") && userRole.equals(mergedInfo.getUserRole())) {
+            if (username.equals(mergedInfo.getName()) && password.equals(mergedInfo.getPassword()) && userRole.equals(mergedInfo.getUserRole())) {
                 return true;
             }
         }
         return false;
     }
-
 
     private static void displayAllEmployees() {
         System.out.println("List of all employees:");
@@ -117,6 +114,7 @@ class Main {
         System.out.println("For Exit : 'X'");
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
+
         switch (command.toLowerCase()) {
             case "l":
                 System.out.println("1. Back to Main Menu 'B', \n" +
@@ -218,9 +216,10 @@ class Main {
                         break;
 
                     case "all":
-                        displayAllAdmin();
                         displayAllManager();
+                        displayAllEmployees();
                         break;
+
                     default:
                         System.out.println("Command not valid!!");
                 }
@@ -263,4 +262,3 @@ class Main {
         }
     }
 }
-

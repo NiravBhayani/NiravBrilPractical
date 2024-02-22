@@ -7,7 +7,10 @@ public class UserLoginInfo {
     private String password;
     private String userRole;
 
-    public UserLoginInfo(int userId, String username, String password, String userRole) {
+    public UserLoginInfo(){
+
+    }
+    public UserLoginInfo(int userId, String password,String userRole,String username){
         this.userId = userId;
         this.username = username;
         this.password = password;

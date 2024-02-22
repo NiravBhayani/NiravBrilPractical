@@ -5,9 +5,9 @@ public abstract class BaseEmployee {
     private String firstName;
     private String lastName;
     private String empType;
-    private double basicSalary;
+    private long basicSalary;
 
-    public BaseEmployee(String empCode, String firstName, String lastName, String empType, double basicSalary){
+    public BaseEmployee(String empCode, String firstName, String lastName, String empType, long basicSalary){
         this.empCode =empCode;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,7 +27,7 @@ public abstract class BaseEmployee {
     public String getEmpType(){
         return empType;
     }
-    public double getBasicSalary(){
+    public long getBasicSalary(){
         return basicSalary;
     }
 }
