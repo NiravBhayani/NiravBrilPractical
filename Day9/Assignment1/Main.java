@@ -156,6 +156,8 @@ class Main {
                 String command3 = scanner.nextLine();
                 switch (command3.toLowerCase()) {
                     case "b":
+                        System.out.println("Back to main menu");
+                        System.exit(0);
                         break;
                     case "e":
                         displayAllEmployees();
@@ -170,7 +172,6 @@ class Main {
                         displayAllAdmin();
                         displayAllManager();
                         displayAllEmployees();
-
                         break;
                     default:
                         System.out.println("Command not valid!!");
@@ -199,9 +200,7 @@ class Main {
         switch (command.toLowerCase()) {
             case "l":
                 System.out.println("1. Back to Main Menu 'B', \n" +
-                        "2. Press 'E' for Employees, \n" +
-                        "3. 'M' for Manager, \n" +
-                        "4. 'All' for all");
+                                   "2. Press 'E' for Employees, \n");
                 String command2 = scanner.nextLine();
                 switch (command2.toLowerCase()) {
                     case "b":
@@ -209,14 +208,6 @@ class Main {
                         System.exit(0);
                         break;
                     case "e":
-                        displayAllEmployees();
-                        break;
-                    case "m":
-                        displayAllManager();
-                        break;
-
-                    case "all":
-                        displayAllManager();
                         displayAllEmployees();
                         break;
 
@@ -227,23 +218,17 @@ class Main {
 
             case "s":
                 System.out.println("1. Back to Main Menu (B), \n" +
-                        "2. Press 'E' for Employees, \n" +
-                        "3. 'M' for Manager, \n" +
-                        "4. 'All' for all");
+                        "2. Press 'E' for Employees, \n" );
 
                 String command3 = scanner.nextLine();
                 switch (command3.toLowerCase()) {
                     case "b":
+                        System.out.println("Back to main menu");
+                        System.exit(0);
                         break;
                     case "e":
                         displayAllEmployees();
                         break;
-                    case "m":
-                       displayAllManager();
-                        break;
-                    case "all":
-                        displayAllManager();
-                        displayAllEmployees();
 
                     default:
                         System.out.println("Command not valid!!");
