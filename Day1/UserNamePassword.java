@@ -6,7 +6,7 @@ public class UserNamePassword {
     // constants class
 
     public boolean validate(String userCode, String password) {
-        if (null == userCode || null == password || "".equals(userCode) || "".equals(password)) {
+        if (null == userCode || null == password || userCode.isEmpty() || password.isEmpty()) {
             System.out.println("null check");
         }
         //null check

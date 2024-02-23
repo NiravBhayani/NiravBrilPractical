@@ -80,6 +80,45 @@ class Main {
         return false;
     }
 
+    private static void searchEmployees() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Give user name of employee:");
+        String userName = scanner.nextLine();
+        for (MergedInfo mergedInfo : mergedInfoList) {
+            if (mergedInfo.getUserRole().equals("Employee") && mergedInfo.getName().equals(userName) ) {
+                System.out.println(mergedInfo);
+            }else {
+                System.out.println("User Name not found...");
+            }
+        }
+    }
+
+    private static void searchManager() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Give user name of Manager:");
+        String userName = scanner.nextLine();
+        for (MergedInfo mergedInfo : mergedInfoList) {
+            if (mergedInfo.getUserRole().equals("Manager") && mergedInfo.getName().equals(userName) ) {
+                System.out.println(mergedInfo);
+            }else {
+                System.out.println("User Name not found...");
+            }
+        }
+    }
+
+    private static void searchAdmin() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Give user name of Admin:");
+        String userName = scanner.nextLine();
+        for (MergedInfo mergedInfo : mergedInfoList) {
+            if (mergedInfo.getUserRole().equals("Admin") && mergedInfo.getName().equals(userName) ) {
+                System.out.println(mergedInfo);
+            }else {
+                System.out.println("User Name not found...");
+            }
+        }
+    }
+
     private static void displayAllEmployees() {
         System.out.println("List of all employees:");
         for (MergedInfo mergedInfo : mergedInfoList) {
@@ -124,8 +163,8 @@ class Main {
                 String command2 = scanner.nextLine();
                 switch (command2.toLowerCase()) {
                     case "b":
-                        System.out.println("Back to main menu");
-                        System.exit(0);
+                        System.out.println("Back to main menu...");
+                        displayOfAdmin();
                         break;
                     case "e":
                         displayAllEmployees();
@@ -157,21 +196,21 @@ class Main {
                 switch (command3.toLowerCase()) {
                     case "b":
                         System.out.println("Back to main menu");
-                        System.exit(0);
+                        displayOfAdmin();
                         break;
                     case "e":
-                        displayAllEmployees();
+                        searchEmployees();
                         break;
                     case "m":
-                        displayAllManager();
+                        searchManager();
                         break;
                     case "a":
-                        displayAllAdmin();
+                        searchAdmin();
                         break;
                     case "all":
-                        displayAllAdmin();
-                        displayAllManager();
-                        displayAllEmployees();
+                        searchAdmin();
+                        searchManager();
+                        searchEmployees();
                         break;
                     default:
                         System.out.println("Command not valid!!");
@@ -180,7 +219,7 @@ class Main {
 
             case "o":
                 System.out.println("You are Log Out");
-                System.exit(0);
+                startFinderProcess();
                 break;
 
             case "x":
@@ -205,7 +244,7 @@ class Main {
                 switch (command2.toLowerCase()) {
                     case "b":
                         System.out.println("Back to main menu");
-                        System.exit(0);
+                        displayOfManager();
                         break;
                     case "e":
                         displayAllEmployees();
@@ -224,10 +263,10 @@ class Main {
                 switch (command3.toLowerCase()) {
                     case "b":
                         System.out.println("Back to main menu");
-                        System.exit(0);
+                        displayOfManager();
                         break;
                     case "e":
-                        displayAllEmployees();
+                        searchEmployees();
                         break;
 
                     default:
@@ -237,7 +276,7 @@ class Main {
 
             case "o":
                 System.out.println("You are Log Out");
-                System.exit(0);
+                startFinderProcess();
                 break;
 
             case "x":
