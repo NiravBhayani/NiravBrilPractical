@@ -8,8 +8,8 @@ import java.util.Scanner;
 class Main {
 
     private static List<MergedInfo> mergedInfoList = Collections.synchronizedList(new ArrayList<>());
-    private static String LOGIN_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/login_info";
-    private static String USER_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/user_info";
+    private static String loginInfoFile = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/login_info";
+    private static String userInfoFile = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/user_info";
 
     public static void main(String[] args) {
         loadUserData();
@@ -18,8 +18,8 @@ class Main {
     }
 
     public static void loadUserData() {
-        UserDataLoader loginInfoLoader = new UserDataLoader(LOGIN_INFO_FILE, mergedInfoList);
-        UserDataLoader userInfoLoader = new UserDataLoader(USER_INFO_FILE, mergedInfoList);
+        UserDataLoader loginInfoLoader = new UserDataLoader(loginInfoFile, mergedInfoList);
+        UserDataLoader userInfoLoader = new UserDataLoader(userInfoFile, mergedInfoList);
         loginInfoLoader.start();
         userInfoLoader.start();
         try {
@@ -87,8 +87,8 @@ class Main {
         for (MergedInfo mergedInfo : mergedInfoList) {
             if (mergedInfo.getUserRole().equals("Employee") && mergedInfo.getName().equals(userName) ) {
                 System.out.println(mergedInfo);
-            }else {
-                System.out.println("User Name not found...");
+            } else if (mergedInfo == null || mergedInfoList.isEmpty() ) {
+                System.out.println("User name not found");
             }
         }
     }
@@ -100,8 +100,6 @@ class Main {
         for (MergedInfo mergedInfo : mergedInfoList) {
             if (mergedInfo.getUserRole().equals("Manager") && mergedInfo.getName().equals(userName) ) {
                 System.out.println(mergedInfo);
-            }else {
-                System.out.println("User Name not found...");
             }
         }
     }
@@ -113,8 +111,6 @@ class Main {
         for (MergedInfo mergedInfo : mergedInfoList) {
             if (mergedInfo.getUserRole().equals("Admin") && mergedInfo.getName().equals(userName) ) {
                 System.out.println(mergedInfo);
-            }else {
-                System.out.println("User Name not found...");
             }
         }
     }

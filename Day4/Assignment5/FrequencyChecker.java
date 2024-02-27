@@ -18,11 +18,9 @@ public class FrequencyChecker {
         TreeMap<String, Integer> sortedMap = new TreeMap<>(frequencyMap);
 
         // check how to print whole tree and map
-        System.out.print("{");
         for (Map.Entry<String, Integer> entry : sortedMap.entrySet()) {
             System.out.print(entry.getKey() + "=" + entry.getValue() + ",");
         }
-        System.out.println("}");
     }
 
         public static void main(String[] args){

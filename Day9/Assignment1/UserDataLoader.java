@@ -8,10 +8,6 @@ import java.util.List;
 public class UserDataLoader extends Thread {
     private String filePath;
     private List<MergedInfo> mergedInfoList;
-    private static List<UserInfo> userInfoList = Collections.synchronizedList(new ArrayList<>());
-    private static List<UserLoginInfo> userLoginInfoList = Collections.synchronizedList(new ArrayList<>());
-    private static String LOGIN_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/login_info";
-    private static String USER_INFO_FILE = "/home/brilworks-26/Desktop/BrilAssignment/Day9/Assignment1/user_info";
 
     public UserDataLoader() {
 
