@@ -82,20 +82,18 @@ class Main {
 
     private static void searchEmployees() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Give user name of employee:");
+        System.out.print("Give user name of employee:");
         String userName = scanner.nextLine();
         for (MergedInfo mergedInfo : mergedInfoList) {
             if (mergedInfo.getUserRole().equals("Employee") && mergedInfo.getName().equals(userName) ) {
                 System.out.println(mergedInfo);
-            } else if (mergedInfo == null || mergedInfoList.isEmpty() ) {
-                System.out.println("User name not found");
             }
         }
     }
 
     private static void searchManager() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Give user name of Manager:");
+        System.out.print("Give user name of Manager:");
         String userName = scanner.nextLine();
         for (MergedInfo mergedInfo : mergedInfoList) {
             if (mergedInfo.getUserRole().equals("Manager") && mergedInfo.getName().equals(userName) ) {
@@ -106,7 +104,7 @@ class Main {
 
     private static void searchAdmin() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Give user name of Admin:");
+        System.out.print("Give user name of Admin:");
         String userName = scanner.nextLine();
         for (MergedInfo mergedInfo : mergedInfoList) {
             if (mergedInfo.getUserRole().equals("Admin") && mergedInfo.getName().equals(userName) ) {
