@@ -41,11 +41,11 @@ end;
 
 select product_name,cast(unit_price as decimal) as UnitPrice from Product;
 
+select OrderID,floor(sum(UnitPrice*Quantity-(UnitPrice*Quantity*Discount/100))) as FinalPrice from OrderDetails
+group by OrderID;
 
-
-
-
-
+select OrderID,ceiling(sum(UnitPrice*Quantity-(UnitPrice*Quantity*Discount/100))) as FinalPrice from OrderDetails
+group by OrderID;
 
 select date_format(order_date,"%Y/%m/%d") from Orders;
 

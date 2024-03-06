@@ -120,3 +120,6 @@ end;
 select sum(freight_price) as sum_freight_price from Orders
 where year(order_date)="1996" and monthname(order_date)="july";
 
+select product_name,unit_price,(unit_price*20)/100+unit_price from Product
+where ((unit_price*20)/100+unit_price-unit_price)>30
+order by ((unit_price*20)/100+unit_price-unit_price) desc;
