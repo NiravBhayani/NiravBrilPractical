@@ -124,20 +124,16 @@ class Main {
 
     private static void displayAllAdmin() {
         System.out.println("List of all Admins:");
-        for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Admin")) {
-                System.out.println(mergedInfo);
-            }
-        }
+        mergedInfoList.forEach(mergedInfo->{if(mergedInfo.getUserRole().equals("Admin")){
+            System.out.println(mergedInfo);
+        }});
     }
 
     private static void displayAllManager() {
         System.out.println("List of all Managers:");
-        for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Manager")) {
-                System.out.println(mergedInfo);
-            }
-        }
+        mergedInfoList.forEach(mergedInfo->{if(mergedInfo.getUserRole().equals("Manager")){
+            System.out.println(mergedInfo);
+        }});
     }
 
     private static void displayOfAdmin() {
