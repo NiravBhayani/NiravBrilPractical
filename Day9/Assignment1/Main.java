@@ -84,22 +84,18 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Give user name of employee:");
         String userName = scanner.nextLine();
-        for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Employee") && mergedInfo.getName().equals(userName) ) {
-                System.out.println(mergedInfo);
-            }
-        }
+        mergedInfoList.forEach(mergedInfo->{if(mergedInfo.getUserRole().equals("Employee")&& mergedInfo.getName().equals(userName)){
+            System.out.println(mergedInfo);
+        }});
     }
 
     private static void searchManager() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Give user name of Manager:");
         String userName = scanner.nextLine();
-        for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Manager") && mergedInfo.getName().equals(userName) ) {
-                System.out.println(mergedInfo);
-            }
-        }
+        mergedInfoList.forEach(mergedInfo->{if(mergedInfo.getUserRole().equals("Manager")&& mergedInfo.getName().equals(userName)){
+            System.out.println(mergedInfo);
+        }});
     }
 
     private static void searchAdmin(){
@@ -107,20 +103,16 @@ class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Give user name of Admin:");
         String userName = scanner.nextLine();
-        for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Admin") && mergedInfo.getName().equals(userName)) {
-                System.out.println(mergedInfo);
-            }
-        }
+        mergedInfoList.forEach(mergedInfo->{if(mergedInfo.getUserRole().equals("Admin")&& mergedInfo.getName().equals(userName)){
+            System.out.println(mergedInfo);
+        }});
     }
 
     private static void displayAllEmployees() {
         System.out.println("List of all employees:");
-        for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Employee")) {
-                System.out.println(mergedInfo);
-            }
-        }
+        mergedInfoList.forEach(mergedInfo->{if(mergedInfo.getUserRole().equals("Employee")){
+            System.out.println(mergedInfo);
+        }});
     }
 
     private static void displayAllAdmin() {
