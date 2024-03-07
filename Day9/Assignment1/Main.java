@@ -102,12 +102,13 @@ class Main {
         }
     }
 
-    private static void searchAdmin() {
+    private static void searchAdmin(){
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("Give user name of Admin:");
         String userName = scanner.nextLine();
         for (MergedInfo mergedInfo : mergedInfoList) {
-            if (mergedInfo.getUserRole().equals("Admin") && mergedInfo.getName().equals(userName) ) {
+            if (mergedInfo.getUserRole().equals("Admin") && mergedInfo.getName().equals(userName)) {
                 System.out.println(mergedInfo);
             }
         }
