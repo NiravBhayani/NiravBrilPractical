@@ -32,7 +32,7 @@ public class FindInFiles {
         Pattern pattern = Pattern.compile(searchText);
         int lineNumber = 0;
 
-        try (FileSystem fs = FileSystems.newFileSystem(file, null);
+        try (FileSystem fs = FileSystems.newFileSystem(file, (ClassLoader) null);
              BufferedReader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             String line;
             while ((line = reader.readLine()) != null) {
